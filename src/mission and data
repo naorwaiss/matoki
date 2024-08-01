@@ -1,0 +1,97 @@
+
+
+
+mission:
+1) fix the pid for the pitch 
+2)
+3)camera laytency
+4)camera resulotion 
+5) night camera resulotion - config
+6)osd disply 
+7) ground control
+8)mapping and dead reconing?
+9) launch file for the controler
+10) launch file for the camera - script open onley 
+11_ 21 optic flow override and serial 
+
+
+
+command for run 
+
+ros2 mavros node :
+ros2 run mavros mavros_node --ros-args -p fcu_url:=/dev/ttyUSB0:57600 -p gcs_url:=udp://@192.168.1.191:14550 -p gcs_url2:=tcp-l://127.0.0.1:14550
+
+ros2 param set /mavros system_id 255
+ros2 param set /mavros component_id 240
+ros2 param set /mavros/param SYSID_MYGCS 1
+
+ros2 run joy joy_node
+
+
+
+input controler 988-2012 all
+ail
+ele
+thr
+rud
+sc
+*can config more -> need to change the rc_in (add flip)
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+new approch - elers bridge 
+
+
+need to install:
+https://github.com/kaack/elrs-joystick-control - this repo - 32 arm 
+
+git clone https://github.com/kaack/elrs-joystick-control.git
+
+cd elrs-joystick-control
+./build-raspbian32-linux-armhf.sh
+
+
+
+need to install also:
+git clone https://github.com/jacksonliam/mjpg-streamer.git
+
+sudo apt-get install cmake libjpeg8-dev
+sudo apt-get install gcc g++
+cd mjpg-streamer-experimental
+make
+sudo make install
+
+
+
+
+mission
+1) need to make some run and disable script
+
+
+
+
+
+
+
+
+
+axis that the controler neeed
+1) roll - need conver to drone and pi
+2) pitch - need conver to drone and pi
+3) yaw  - need convert to drone and pi
+3) thr - need convert to drone and pi
+4) arm -disarm  - need convert to drone and pi
+5) flip - need convert to drone and pi
+6) mode - need convert to drone and pi
+
+7) vedio replacement  - no need convert
+8) web app - no need convert and maby no need control - maby at the app as wiget
+9) accle calib - need convert to drone and the pi
+10 ) disable and activate tx - need convert
+
+11) capsule control - need convert (dont know how mach ch)
+
+
+-- need to think if need another
