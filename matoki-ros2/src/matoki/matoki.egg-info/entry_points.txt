@@ -1,0 +1,2 @@
+[console_scripts]
+rc_in = matoki.rc_in:main
